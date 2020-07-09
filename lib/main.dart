@@ -1,15 +1,20 @@
+import 'package:amo/models/user.dart';
+import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
-import 'pages/home.dart';
-import 'pages/loading.dart';
-import 'pages/choose_mode.dart';
-import 'pages/insert_name.dart';
+import 'package:amo/screens/wrapper.dart';
+import 'package:amo/services/auth.dart';
 
-void main() => runApp(MaterialApp(
-	initialRoute: '/choose_mode',
-	routes: {
-		'/': (context) => Loading(),
-		'/choose_mode': (context) => ChooseMode(),
-		'/home': (context) => Home(),
-		'/insert_name': (context) => InsertName(),
-	},
-));
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget{
+
+	@override
+	Widget build(BuildContext context){
+		return StreamProvider<User>.value(
+			value: AuthService().user,
+			child: MaterialApp(
+				home: Wrapper(),
+			),
+		);
+	}
+}
