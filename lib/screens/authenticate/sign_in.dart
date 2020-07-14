@@ -27,7 +27,7 @@ class _SignInState extends State<SignIn>{
 		return loading ? Loading() : Scaffold(
 			backgroundColor: Colors.grey[500],
 			appBar: AppBar(
-				backgroundColor: Color(0xFFAF923D),
+				backgroundColor: Color(0xFFA28629),
 				title: Text('Sign in'),
 				actions: <Widget> [
 					FlatButton.icon(
@@ -47,7 +47,7 @@ class _SignInState extends State<SignIn>{
 					key: _formKey,
 
 					child: Column(
-						children: <Widget> [
+						children: <Widget>[
 
 							SizedBox(height: 20.0),
 
@@ -75,7 +75,7 @@ class _SignInState extends State<SignIn>{
 							RaisedButton(
 								color: Colors.white,
 								child: Text('Sign in',
-									style: TextStyle(color: Color(0xFFAF923D)),
+									style: TextStyle(color: Color(0xFFA28629)),
 								),
 								onPressed: () async {
 									if(_formKey.currentState.validate()){
