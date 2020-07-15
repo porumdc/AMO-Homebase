@@ -1,4 +1,5 @@
 import 'package:amo/models/amomodel.dart';
+import 'package:amo/models/user.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class DatabaseService{
@@ -8,12 +9,19 @@ class DatabaseService{
 
 	final CollectionReference amoCollection = Firestore.instance.collection('amo');
 
-	Future updateUserData(String firstname, String lastname, int birthdate) async {
+	/*Future updateUserData(String firstname, String lastname) async {  //int birthdate) async {
 
 		return await amoCollection.document(uid).setData({
 			'firstname': firstname,
 			'lastname': lastname,
-			'birthdate': birthdate,
+			//'birthdate': birthdate,
+		});
+	}*/
+
+	Future<void> updateUserData(String firstname, String lastname) async {
+		return await amoCollection.document(uid).setData({
+			'firstname': firstname,
+			'lastname': lastname,
 		});
 	}
 
@@ -23,15 +31,28 @@ class DatabaseService{
 			return AmoModel(
 				firstname: doc.data['firstname'] ?? '',
 				lastname: doc.data['lastname'] ?? '',
-				birthdate: doc.data['birthdate'] ?? 0
+				//birthdate: doc.data['birthdate'] ?? 0
 			);
 		}).toList();
+	}
+
+	UserData _userDataFromSnapshot(DocumentSnapshot snapshot){
+		return UserData(
+			uid: uid,
+			firstname: snapshot.data['firstname'],
+			lastname: snapshot.data['lastname'],
+		);
 	}
 
 	//get data stream
 	Stream<List<AmoModel>> get amo {
 		return amoCollection.snapshots()
 			.map(_dataListFromSnapshot);
+	}
+
+	Stream<UserData> get userData {
+		return amoCollection.document(uid).snapshots()
+		.map(_userDataFromSnapshot);
 	}
 
 }

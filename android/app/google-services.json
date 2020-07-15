@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "184810805916",
-    "firebase_url": "https://amo-homebase.firebaseio.com",
-    "project_id": "amo-homebase",
-    "storage_bucket": "amo-homebase.appspot.com"
+    "project_number": "776053493030",
+    "firebase_url": "https://amo-homebase-86cf2.firebaseio.com",
+    "project_id": "amo-homebase-86cf2",
+    "storage_bucket": "amo-homebase-86cf2.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:184810805916:android:34ef402f24d455ed48eb59",
+        "mobilesdk_app_id": "1:776053493030:android:b87e9d380ff9f76afa05e7",
         "android_client_info": {
           "package_name": "pauljoseph.amo"
         }
       },
       "oauth_client": [
         {
-          "client_id": "184810805916-blfv18f0t9hfoebss0ula45cpj8bfq9u.apps.googleusercontent.com",
+          "client_id": "776053493030-01s57nn4tb07knpbna7jiqf3bb7nssfh.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyACVnrY6qlh5P_HiYgaNR5s1m8OWzPEpJA"
+          "current_key": "AIzaSyBkLQefd9ZjmB4-xKFcT4PRRVkHFt6U840"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "184810805916-blfv18f0t9hfoebss0ula45cpj8bfq9u.apps.googleusercontent.com",
+              "client_id": "776053493030-01s57nn4tb07knpbna7jiqf3bb7nssfh.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

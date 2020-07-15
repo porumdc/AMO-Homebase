@@ -1,6 +1,7 @@
 import 'package:amo/models/user.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:amo/services/database.dart';
+//import 'package:amo/screens/authenticate/register.dart';
 
 class AuthService {
 
@@ -21,7 +22,7 @@ class AuthService {
 			AuthResult result = await _auth.signInWithEmailAndPassword(email: email, password: password);
 			FirebaseUser user = result.user;
 
-			await DatabaseService(uid: user.uid).updateUserData('','', 0);
+			await DatabaseService(uid: user.uid).updateUserData('',''); //, 0);
 
 			return _userFromFirebaseUser(user);
 		} catch(e){
@@ -31,9 +32,9 @@ class AuthService {
 	}
 
 	// Register with email and password
-	Future registerWithEmailAndPassword(String email, String password) async {
+	Future registerWithEmailAndPassword(String email, String password) async { //, String firstname, String lastname) async {
 		try{
-			AuthResult result = await _auth.createUserWithEmailAndPassword(email: email, password: password);
+			AuthResult result = await _auth.createUserWithEmailAndPassword(email: email, password: password); //, firstname: firstname, lastname: lastname);
 			FirebaseUser user = result.user;
 			return _userFromFirebaseUser(user);
 		} catch(e){

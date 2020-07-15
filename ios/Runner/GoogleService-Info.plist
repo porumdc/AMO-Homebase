@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>184810805916-mi1ihe51tc53hiod7d5h1ve1umftflt0.apps.googleusercontent.com</string>
+	<string>776053493030-ap7ugesi5gvh4m0mlc0qnanpum4leaio.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.184810805916-mi1ihe51tc53hiod7d5h1ve1umftflt0</string>
+	<string>com.googleusercontent.apps.776053493030-ap7ugesi5gvh4m0mlc0qnanpum4leaio</string>
 	<key>API_KEY</key>
-	<string>AIzaSyCjaSWEVb24uD5DzWKNXYEP2V9tNsJZ_2A</string>
+	<string>AIzaSyBZ7H4Levq2109_f3UEqrAVxhTVg_5xWnI</string>
 	<key>GCM_SENDER_ID</key>
-	<string>184810805916</string>
+	<string>776053493030</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>pauljoseph.amo</string>
 	<key>PROJECT_ID</key>
-	<string>amo-homebase</string>
+	<string>amo-homebase-86cf2</string>
 	<key>STORAGE_BUCKET</key>
-	<string>amo-homebase.appspot.com</string>
+	<string>amo-homebase-86cf2.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,8 +29,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:184810805916:ios:f6fdf773568d571948eb59</string>
+	<string>1:776053493030:ios:9c8ab0c6fb4f2f15fa05e7</string>
 	<key>DATABASE_URL</key>
-	<string>https://amo-homebase.firebaseio.com</string>
+	<string>https://amo-homebase-86cf2.firebaseio.com</string>
 </dict>
 </plist>

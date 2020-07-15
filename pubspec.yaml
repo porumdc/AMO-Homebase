@@ -25,6 +25,7 @@ dependencies:
     sdk: flutter
   date_field: ^0.1.2
   provider: ^3.1.0
+  google_fonts: ^1.1.0
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -66,7 +67,11 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
+  fonts:
+    - family: Montserrat
+      fonts:
+        - asset: lib/assets/fonts/Montserrat-Black.ttf
+        - asset: lib/assets/fonts/Montserrat-Bold.ttf
   #   - family: Schyler
   #     fonts:
   #       - asset: fonts/Schyler-Regular.ttf
