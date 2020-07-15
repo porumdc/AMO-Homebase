@@ -64,11 +64,20 @@ class _RegisterState extends State<Register> {
 	}
 
 	void _showSettingsPanel(){
-		showModalBottomSheet(context: context, builder: (context){
+
+		showModalBottomSheet(context: context, isScrollControlled: true, builder: (context){
 			return Scaffold(
 				body: Padding(
 					padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 60.0),
-					child: SettingsForm(),
+					child: Column(
+						children: <Widget> [
+							GestureDetector(
+								behavior: HitTestBehavior.opaque,
+								onTap: () {},
+								child: SettingsForm(),
+							),
+						],
+					),
 				),
 			);
 		});
@@ -112,7 +121,7 @@ class _RegisterState extends State<Register> {
 											Image.asset('lib/assets/amologo.png',
 												height: 200,
 												width: 200,
-												),
+											),
 
 											Text('M  I  S  S  I  O  N    B  A  S  E',
 												style: TextStyle(

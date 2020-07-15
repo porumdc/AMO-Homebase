@@ -24,6 +24,7 @@ class _SettingsFormState extends State<SettingsForm> {
 	User user = Provider.of<User>(context);
 
 	return StreamBuilder<UserData>(
+
 	  stream: DatabaseService(uid: user.uid).userData,
 	  builder: (context, snapshot) {
 		  //UserData userData = snapshot.data;
@@ -31,7 +32,7 @@ class _SettingsFormState extends State<SettingsForm> {
 			key: _formKey,
 			child: Column(
 			  children: <Widget>[
-				SizedBox(height: 20.0),
+				SizedBox(height: 50.0),
 				TextFormField(
 				  //initialValue: userData.firstname,
 				  decoration: textInputDecoration.copyWith(hintText: 'First name'),
