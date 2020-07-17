@@ -8,7 +8,6 @@ import 'package:amo/services/database.dart';
 import 'package:provider/provider.dart';
 import 'package:amo/screens/home/settings_form.dart';
 
-
 class Register extends StatefulWidget{
 	final Function toggleView;
 	Register ({ this.toggleView });
@@ -20,25 +19,32 @@ class Register extends StatefulWidget{
 class _RegisterState extends State<Register> {
 
 	final AuthService _auth = AuthService();
-	final _formKey = GlobalKey<FormState>();
+	static final _formKey = GlobalKey<FormState>();
 	final TextEditingController _confirmPassword = TextEditingController();
 	final TextEditingController _password = TextEditingController();
-	//final TextEditingController _firstName = TextEditingController();
-	//final TextEditingController _lastName = TextEditingController();
 	bool loading = false;
 
 	String email = '';
 	String password = '';
 	String error = '';
+	String error2 = '';
 	String confirmPassword = '';
-	//String firstName = '';
-	//String lastName = '';
-	//Color myColor = 0xFFA28629;
+	String loadingOnPress = 'Register';
+	//String accessCode = '';
 
 	bool validationEqual(String currentValue, String checkValue){
-		if( currentValue == checkValue){
+		if(currentValue == checkValue){
 			return true;
 		} else {
+			return false;
+		}
+	}
+
+	bool accessCodeCheck(String value){
+		if(value == 'contactperson' || value == 'stayin'){
+			return true;
+		}
+		else{
 			return false;
 		}
 	}
@@ -53,34 +59,31 @@ class _RegisterState extends State<Register> {
 		return null;
 	}
 
-	String validatorConfirmPassword(String value){
-		if(value.isEmpty){
-			return 'Enter a password';
-		}
-		else if(value.length < 6){
-			return 'Enter a password with 6 characters or more';
-		}
-		return null;	
-	}
-
 	void _showSettingsPanel(){
 
-		showModalBottomSheet(context: context, isScrollControlled: true, builder: (context){
-			return Scaffold(
-				body: Padding(
-					padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 60.0),
-					child: Column(
-						children: <Widget> [
-							GestureDetector(
-								behavior: HitTestBehavior.opaque,
-								onTap: () {},
-								child: SettingsForm(),
-							),
-						],
+		showModalBottomSheet(
+			context: context,
+			isScrollControlled: true,
+			enableDrag: false,
+			builder: (context){
+
+				return Scaffold(
+					backgroundColor: Colors.black,
+					body: Padding(
+						padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 60.0),
+						child: Column(
+							children: <Widget> [
+								GestureDetector(
+									behavior: HitTestBehavior.opaque,
+									onTap: () {},
+									child: SettingsForm(),
+								),
+							],
+						),
 					),
-				),
-			);
-		});
+				);
+			}
+		);
 	}
 
 	@override
@@ -133,7 +136,7 @@ class _RegisterState extends State<Register> {
 
 											SizedBox(height: 20.0),
 
-											TextFormField(
+											TextFormField( // Email
 												decoration: textInputDecoration.copyWith(hintText: 'Email'),
 												validator: (valEmail) => valEmail.isEmpty ? 'Enter a valid email' : null,
 												onChanged: (valEmail) {
@@ -143,7 +146,7 @@ class _RegisterState extends State<Register> {
 
 											SizedBox(height: 20.0),
 
-											TextFormField(
+											TextFormField( // Password
 												decoration: textInputDecoration.copyWith(hintText: 'Password'),
 												controller: _password,
 												obscureText: true,
@@ -155,7 +158,7 @@ class _RegisterState extends State<Register> {
 
 											SizedBox(height: 20.0),
 
-											TextFormField(
+											TextFormField( // Confirm Password
 												decoration: textInputDecoration.copyWith(hintText: 'Confirm Password'),
 												obscureText: true,
 												controller: _confirmPassword,
@@ -172,22 +175,25 @@ class _RegisterState extends State<Register> {
 
 											SizedBox(height: 20.0),
 
-											RaisedButton(
+											RaisedButton( // Confirm Button
 												color: Colors.white,
 												padding: EdgeInsets.symmetric(horizontal: 100.0, vertical: 15.0),
-												child: Text('Register',
+												child: Text(loadingOnPress,
 													style: TextStyle(color: Color(0xFFA28629), fontSize: 15.0),
 												),
 												onPressed: () async {
 													if(_formKey.currentState.validate()){
-														//setState(() => loading = true);							
+														//setState(() => loading = true);
+														setState(() => loadingOnPress = 'Loading. Please wait');
 														dynamic result = await _auth.registerWithEmailAndPassword(email, password); //, firstName, lastName);
 														if(result == null){
 															setState(() => error = 'Please supply a valid email');
 															//loading = false;
+															setState(() => loadingOnPress = 'Register');
 														}
+														_showSettingsPanel();
 													}
-													_showSettingsPanel();
+													
 												},
 											),
 

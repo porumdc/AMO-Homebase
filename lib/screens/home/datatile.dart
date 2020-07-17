@@ -1,4 +1,4 @@
-/*import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:amo/models/amomodel.dart';
 
 class DataTile extends StatelessWidget{
@@ -18,10 +18,9 @@ class DataTile extends StatelessWidget{
 						backgroundColor: Color(0xFFAF923D),
 					),
 					title: Text('${amomodel.firstname} ${amomodel.lastname}'),
-					//subtitle: Text('birthdate: ${amomodel.birthdate}'),
+					subtitle: Text('role: ${amomodel.role}'),
 				),
 			),
 		);
 	}
 }
-*/

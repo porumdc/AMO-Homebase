@@ -1,18 +1,18 @@
-/*import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:amo/models/amomodel.dart';
 import 'package:amo/screens/home/datatile.dart';
 
-class AmoDataList extends StatefulWidget{
+class AmoMemberList extends StatefulWidget{
 	@override
-	_AmoDataListState createState() => _AmoDataListState();
+	_AmoMemberListState createState() => _AmoMemberListState();
 }
 
-class _AmoDataListState extends State<AmoDataList>{
+class _AmoMemberListState extends State<AmoMemberList>{
 	@override
 	Widget build(BuildContext context){
 
-		final dataProvider = Provider.of<List<AmoModel>>(context);
+		final dataProvider = Provider.of<List<AmoModel>>(context) ?? [];
 
 		/*return Scaffold(
 			body: Container(
@@ -27,4 +27,4 @@ class _AmoDataListState extends State<AmoDataList>{
 			},
 		);
 	}
-}*/
+}

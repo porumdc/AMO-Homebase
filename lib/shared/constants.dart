@@ -10,3 +10,5 @@ const textInputDecoration = InputDecoration(
 		borderSide: BorderSide(color: Color(0xFFAF923D), width: 2.0)
 	),
 );
+
+const amoPrimaryColor = Color(0xFFA28629);
