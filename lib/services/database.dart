@@ -9,12 +9,23 @@ class DatabaseService{
 
 	final CollectionReference amoCollection = Firestore.instance.collection('amo');
 
-	Future<void> updateUserData(String firstname, String lastname, String role, String email) async {
+	Future<void> updateUserData(String firstname, String lastname, String role, String email, String location) async {
 		return await amoCollection.document(uid).setData({
 			'firstname': firstname,
 			'lastname': lastname,
 			'role': role,
 			'email': email,
+			'location': location,
+		});
+	}
+
+	Future<void> updateUserDataLocation(String firstname, String lastname, String role, String email, String location) async {
+		return await amoCollection.document(uid).setData({
+			'firstname': firstname,
+			'lastname': lastname,
+			'role': role,
+			'email': email,
+			'location': location,
 		});
 	}
 
@@ -26,6 +37,7 @@ class DatabaseService{
 				lastname: doc.data['lastname'] ?? '',
 				role: doc.data['role'] ?? '',
 				email: doc.data['email'] ?? '',
+				location: doc.data['location'] ?? '',
 				//birthdate: doc.data['birthdate'] ?? 0
 			);
 		}).toList();
@@ -38,6 +50,7 @@ class DatabaseService{
 			lastname: snapshot.data['lastname'],
 			role: snapshot.data['role'],
 			email: snapshot.data['email'],
+			location: snapshot.data['location'],
 		);
 	}
 

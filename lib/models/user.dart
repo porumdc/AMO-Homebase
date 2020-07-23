@@ -10,6 +10,7 @@ class UserData{
 	final String lastname;
 	final String role;
 	final String email;
+	final String location;
 
-	UserData({ this.uid, this.firstname, this.lastname, this.role, this.email});
+	UserData({ this.uid, this.firstname, this.lastname, this.role, this.email, this.location});
 }

@@ -15,10 +15,13 @@ class DataTile extends StatelessWidget{
 				child: ListTile(
 					leading: CircleAvatar(
 						radius: 25.0,
-						backgroundColor: Color(0xFFAF923D),
+						backgroundColor: amomodel.location.length > 0
+							? Colors.lightBlue
+							: Colors.red
+						,
 					),
 					title: Text('${amomodel.firstname} ${amomodel.lastname}'),
-					subtitle: Text('role: ${amomodel.role}'),
+					subtitle: Text('location: ${amomodel.location}'),
 				),
 			),
 		);

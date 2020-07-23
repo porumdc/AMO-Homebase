@@ -1,11 +1,10 @@
-import 'package:amo/screens/home/amomemberlist.dart';
 import 'package:amo/services/auth.dart';
 import 'package:flutter/material.dart';
 import 'package:amo/services/database.dart';
 import 'package:provider/provider.dart';
-import 'package:amo/models/amomodel.dart';
 import 'package:amo/models/user.dart';
 import 'package:amo/screens/home/sethome.dart';
+import 'package:amo/screens/home/stayinpage.dart';
 //import 'package:firebase_auth/firebase_auth.dart';
 
 class Home extends StatefulWidget{
@@ -45,8 +44,9 @@ class _HomeState extends State<Home> {
 				}	
 				else{
 					return Scaffold(
+						backgroundColor: Colors.black,
 						appBar: AppBar(
-							title: Text('Home'),
+							title: Text('Guest Page'),
 							backgroundColor: Color(0xFFA28629),
 							actions: <Widget> [
 								FlatButton.icon(
@@ -58,9 +58,7 @@ class _HomeState extends State<Home> {
 								),
 							],
 						),
-						body: Container(
-							child: Text('${snapshot.data.role}'),
-						),
+						body: StayinPage(),
 					);
 				}
 			}

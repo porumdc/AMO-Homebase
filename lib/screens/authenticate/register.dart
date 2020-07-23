@@ -1,7 +1,6 @@
 import 'package:amo/shared/loading.dart';
 import 'package:amo/shared/constants.dart';
 import 'package:flutter/material.dart';
-//import 'package:google_fonts/google_fonts.dart';
 import 'package:amo/services/auth.dart';
 import 'package:amo/models/amomodel.dart';
 import 'package:amo/services/database.dart';
@@ -30,7 +29,6 @@ class _RegisterState extends State<Register> {
 	String error2 = '';
 	String confirmPassword = '';
 	String loadingOnPress = 'Register';
-	//String accessCode = '';
 
 	bool validationEqual(String currentValue, String checkValue){
 		if(currentValue == checkValue){
@@ -182,16 +180,20 @@ class _RegisterState extends State<Register> {
 													style: TextStyle(color: Color(0xFFA28629), fontSize: 15.0),
 												),
 												onPressed: () async {
-													if(_formKey.currentState.validate()){
-														//setState(() => loading = true);
-														setState(() => loadingOnPress = 'Loading. Please wait');
-														dynamic result = await _auth.registerWithEmailAndPassword(email, password); //, firstName, lastName);
-														if(result == null){
-															setState(() => error = 'Please supply a valid email');
-															//loading = false;
-															setState(() => loadingOnPress = 'Register');
+													try{
+														if(_formKey.currentState.validate()){
+															//setState(() => loading = true);
+															setState(() => loadingOnPress = 'Loading. Please wait');
+															dynamic result = await _auth.registerWithEmailAndPassword(email, password); //, firstName, lastName);
+															if(result == null){
+																setState(() => error = 'Please supply a valid email');
+																//loading = false;
+																setState(() => loadingOnPress = 'Register');
+															}
+															_showSettingsPanel();
 														}
-														_showSettingsPanel();
+													} catch (e){
+														setState(() => error = e.toString());
 													}
 													
 												},

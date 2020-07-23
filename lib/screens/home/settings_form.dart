@@ -76,6 +76,7 @@ class _SettingsFormState extends State<SettingsForm> {
 											_lastName ?? snapshot.data.lastname,
 											_role ?? snapshot.data.role,
 											_email ?? snapshot.data.email,
+											'' ?? snapshot.data.location,
 									);
 									setState(() => loading = 'Loading. Please wait');
 									Navigator.pop(context);
