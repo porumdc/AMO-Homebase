@@ -12,7 +12,7 @@ class StayinPage extends StatefulWidget{
 class _StayinPageState extends State<StayinPage>{
 	bool isSwitched = true;
 	final _formKey = GlobalKey<FormState>();
-	String loading = 'HERE';
+	String loading = '';
 	String location = '';
 
 	@override
